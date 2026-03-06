@@ -1,6 +1,6 @@
 {
   "name": "lematizacion-cubun",
-  "homepage": "https://dfgomeza.github.io/cubun_lematizaciones", //6-3-2026
+  "homepage": "https://dfgomeza.github.io/cubun_lematizaciones",
   "private": true,
   "version": "0.0.1",
   "type": "module",
@@ -9,8 +9,8 @@
     "build": "vite build",
     "preview": "vite preview",
 
-    "predeploy": "npm run build",//6-3-2026
-    "deploy": "gh-pages -d dist"//6-3-2026
+    "predeploy": "npm run build", 
+    "deploy": "gh-pages -d dist" 
   },
   "dependencies": {
     "@capacitor/android": "^7.4.4",
