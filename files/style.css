@@ -1,0 +1,400 @@
+/* LEXEMA */
+
+.allpagesredirect{
+text-decoration: line-through;
+}
+
+body {
+	font-family:Georgia, "Times New Roman", Times, serif;
+	font-size: 16px;
+	/* font-family: "Times New Roman", "Times New Roman Muysccubun";  */
+}
+  
+body table{
+	font-family:Georgia, "Times New Roman", Times, serif;
+}
+
+
+dl, ol, ul {
+	padding-left: 40px;
+}
+
+
+
+/* Nav bar */
+
+
+/* Progreso de lectura */
+#progress_reading {
+	position: absolute;
+  width: 0;
+  bottom: -5px;
+  left: 0;
+  height: 15px;
+  z-index: 9;  
+  background-image: url(../files/images/progress_reading.jpg);
+  border-radius: 0 2px 2px 0;
+}
+.progress_reading_head {
+	position: relative;
+	float: right;
+  display: block;
+	background: url(../files/images/head.png);
+  width: 25px;
+  height: 20px;  
+  left:20px;
+  background-repeat: no-repeat;
+  top: -1px;
+}
+#folio_info{
+  position:absolute;
+  bottom: -28px;
+  text-align: center;
+  width: 100%;
+  padding: 0;
+  border-radius: 0 0 5px 5px;
+  background: gainsboro;
+  z-index: 0;
+  font-size: 12px;
+}
+
+
+
+
+
+
+/* Siglo XII */
+@font-face {
+  font-family: 'jancient';
+  src: url('../files/fonts/jancient.woff') format('woff');
+  font-style: normal;
+  font-weight: normal;
+}
+
+.fuente_xvii{
+	font-family: 'jancient';
+	font-size: 22px;
+}
+.fuente_xvii table{
+	font-family: 'jancient';
+}
+
+	.fuente_xvii li{
+		line-height: 1.2;
+	} 
+	.fuente_xvii .normal{
+		color:black;
+	}
+	.fuente_xvii .latin{
+		font-style: italic;
+		color: #000;
+	}
+	.fuente_xvii .references{
+		font-size: 20px;
+	}
+
+
+
+/* Muysca numerals */
+.chb-list {
+  counter-reset: custom-counter;
+  list-style-type: none;
+  text-indent: -1.18em;
+}
+
+.chb-list li::before {
+	position: relative;
+  content: counter(custom-counter);
+  counter-increment: custom-counter;
+	display: inline-block;
+	width: 15px;
+  height: 15px;
+  background-size: cover;
+  content: '';
+  margin-right: 4px;
+}
+
+.chb-list li:nth-child(1)::before { background-image: url('chb_num/1.svg');}
+.chb-list li:nth-child(2)::before { background-image: url('chb_num/2.svg');}
+.chb-list li:nth-child(3)::before { background-image: url('chb_num/3.svg');}
+.chb-list li:nth-child(4)::before { background-image: url('chb_num/4.svg');}
+.chb-list li:nth-child(5)::before { background-image: url('chb_num/5.svg');}
+.chb-list li:nth-child(6)::before { background-image: url('chb_num/6.svg');}
+.chb-list li:nth-child(7)::before { background-image: url('chb_num/7.svg');}
+.chb-list li:nth-child(8)::before { background-image: url('chb_num/8.svg');}
+.chb-list li:nth-child(9)::before { background-image: url('chb_num/9.svg');}
+.chb-list li:nth-child(10)::before { background-image: url('chb_num/10.svg');}
+.chb-list li:nth-child(11)::before { background-image: url('chb_num/11.svg');}
+.chb-list li:nth-child(12)::before { background-image: url('chb_num/12.svg');}
+.chb-list li:nth-child(13)::before { background-image: url('chb_num/13.svg');}
+.chb-list li:nth-child(14)::before { background-image: url('chb_num/14.svg');}
+.chb-list li:nth-child(15)::before { background-image: url('chb_num/15.svg');}
+.chb-list li:nth-child(16)::before { background-image: url('chb_num/16.svg');}
+.chb-list li:nth-child(17)::before { background-image: url('chb_num/17.svg');}
+.chb-list li:nth-child(18)::before { background-image: url('chb_num/18.svg');}
+.chb-list li:nth-child(19)::before { background-image: url('chb_num/19.svg');}
+.chb-list li:nth-child(20)::before { background-image: url('chb_num/20.svg'); width: 20px; left:-5px;}
+.chb-list li:nth-child(21)::before { background-image: url('chb_num/21.svg'); width: 20px; left:-5px;}
+.chb-list li:nth-child(22)::before { background-image: url('chb_num/22.svg'); width: 20px; left:-5px;}
+.chb-list li:nth-child(23)::before { background-image: url('chb_num/23.svg'); width: 20px; left:-5px;}
+.chb-list li:nth-child(24)::before { background-image: url('chb_num/24.svg'); width: 20px; left:-5px;}
+.chb-list li:nth-child(25)::before { background-image: url('chb_num/25.svg'); width: 20px; left:-5px;}
+.chb-list li:nth-child(26)::before { background-image: url('chb_num/26.svg'); width: 20px; left:-5px;}
+.chb-list li:nth-child(27)::before { background-image: url('chb_num/27.svg'); width: 20px; left:-5px;}
+.chb-list li:nth-child(28)::before { background-image: url('chb_num/28.svg'); width: 20px; left:-5px;}
+.chb-list li:nth-child(29)::before { background-image: url('chb_num/29.svg'); width: 20px; left:-5px;}
+.chb-list li:nth-child(30)::before { background-image: url('chb_num/30.svg'); width: 20px; left:-5px;}
+.chb-list li:nth-child(31)::before { background-image: url('chb_num/31.svg'); width: 20px; left:-5px;}
+.chb-list li:nth-child(32)::before { background-image: url('chb_num/32.svg'); width: 20px; left:-5px;}
+.chb-list li:nth-child(33)::before { background-image: url('chb_num/33.svg'); width: 20px; left:-5px;}
+.chb-list li:nth-child(34)::before { background-image: url('chb_num/34.svg'); width: 20px; left:-5px;}
+.chb-list li:nth-child(35)::before { background-image: url('chb_num/35.svg'); width: 20px; left:-5px;}
+.chb-list li:nth-child(36)::before { background-image: url('chb_num/36.svg'); width: 20px; left:-5px;}
+.chb-list li:nth-child(37)::before { background-image: url('chb_num/37.svg'); width: 20px; left:-5px;}
+.chb-list li:nth-child(38)::before { background-image: url('chb_num/38.svg'); width: 20px; left:-5px;}
+.chb-list li:nth-child(39)::before { background-image: url('chb_num/39.svg'); width: 20px; left:-5px;}
+.chb-list li:nth-child(40)::before { background-image: url('chb_num/40.svg'); width: 20px; left:-5px;}
+
+
+.neocifras{
+	visibility:hidden;
+}
+.show_neocifras{
+	visibility:block;
+}
+
+
+
+/* Menú y cambios */
+.menu{
+	position: absolute;
+	height:40px;
+}
+
+.list-none {
+	list-style-type: none;
+	text-indent: -1.25em; 
+	margin: 0em;
+}
+
+.mostrar-lista {
+	list-style-type: decimal;
+	text-indent: 0em; 
+	margin:0em;
+}
+
+.ocultar-anadido {
+  display:none;
+}
+
+
+.normal{
+	color:blue;
+	text-decoration: none;
+}
+
+a.normal:hover{
+	text-decoration: underline;
+	color:#8C001A;
+}
+
+.check{
+	color:white;
+}
+
+.new{
+	color:red;
+}
+
+
+
+
+
+
+/* Folio */
+#folio, #imagen {
+  border: 10px solid transparent;
+  border-image: url(images/border.png) 35% round;
+  min-height: 1150px;
+}
+
+#imagen{
+	text-align: center;
+	padding: 15px 0;
+}
+
+#folio{
+	padding: 15px 10px 15px 0px;
+}
+
+.latin{
+	color:#0000ff;
+	font-style: italic;
+}
+
+.references{
+	padding: 10px 15px 40px 15px;
+	font-size: 14px;
+}
+
+.morfema{
+	border-left: 1px dotted red;
+	border-right: 1px dotted red;
+	border-bottom: 1px dotted red;
+	border-top: 1px dotted red;
+	color: #000;
+	background-color: #F7ECF5;
+	border-radius: 5px;
+	padding: 0 0px;
+
+}
+a.morfema:hover {
+	border-left: 1px solid #8e3400; 
+	border-right: 1px solid #8e3400;
+	border-bottom: 3px solid #8e3400;
+	border-top: 3px solid #8e3400;
+	color: black;
+	background-color: #F4F4F4;/*#FAEBD7; */
+	text-decoration: none;
+}
+
+
+
+
+/**/
+.loader{
+	z-index: 10;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: none;
+}
+.progressBar{
+	display: block;
+	width: 100%;
+}
+progress {
+   position: absolute;
+   height : 20px;
+   border: 1px solid gray;
+   border-radius: 10px;
+   bottom: -16px;
+}
+progress::-webkit-progress-bar {
+   background-color: white;
+   border-radius: 10px;
+   
+}
+progress::-webkit-progress-value {
+   background-color: darkorange;
+   border-radius: 10px;
+   background-image: url(../files/images/progress_reading.jpg);
+}
+
+
+
+
+/* Bootstrap */
+.navbar-brand {
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+
+
+
+
+
+/* Tooltip */
+.tooltip-container {
+  width: 425px;
+  min-height: 200px;
+  height: auto;
+  box-shadow: 0 80px 80px 0 rgba(0,0,0,0.8);
+  position: absolute;
+  z-index: 100;
+  display: none;
+  opacity: 0;
+  /*border:0px dotted orange;*/
+  text-align: justify;
+}
+  .tooltip-body{
+  	padding: 0px 10px 15px 15px;
+  	min-height: 150px;
+  	background-color: #fff;
+  	background-image: url('images/tooltip-background.png');
+
+  } 
+	.tooltip-body h6{		
+		font-size: 24px;
+		font-weight: bold;
+	}
+	.tooltip-body p{
+		font-size: 18px;
+		margin-left: 25px;
+	}
+	.dic_update{
+		position: relative;
+		font-size: 10px;
+		right:3px;
+		text-align: right;
+		padding: 5px;
+	}
+
+.fade-in {
+  display: block;
+  animation: fade 0.2s linear forwards;
+}
+
+@keyframes fade {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+
+
+/* MODAL Android y Tooltip Web */
+.modal-header-bg, .modal-footer-bg, .tooltip-header-bg, .tooltip-footer-bg  {
+	background-size: 55px auto;
+	background-repeat: repeat-x;
+	height: 38px;
+}
+
+.modal-header{
+	padding: 5px 15px;
+	border: 0;
+}
+
+.modal-title{
+	font-weight: bold;
+}
+
+.modal-body {
+    padding-left: 35px;
+}
+
+.modal-header-bg, .tooltip-header-bg{
+	background-image: url('images/bg_android_header.png');
+  background-position: top;
+}
+
+.modal-footer-bg, .tooltip-footer-bg{
+	background-image: url('images/bg_android_footer.png');
+	background-position: bottom;
+}
+
+
+
+/* Small devices (landscape phones, 576px and up) */
+@media (max-width: 576px) { 
+	#folio, #imagen {
+    height: 100% !important;
+	}
+
+}
+

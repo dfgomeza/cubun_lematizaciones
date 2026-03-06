@@ -1,0 +1,152 @@
+﻿/*
+Linguistics.digital
+2023
+*/
+
+/* Mostrar loader */
+function mostrarLoader() {
+  var loader = document.getElementById('loader');
+  loader.style.display = "block";
+}
+
+/* Ocultar loader */
+function ocultarLoader() {
+  var loader = document.getElementById('loader');
+  loader.style.display = "none";
+}
+
+/* Procesar lote de elementos */
+function processBatch(elements, batchSize, className, callback) {
+  var totalElements = elements.length;
+  var processedCount = 0;
+
+  function process(startIndex) {
+    for (var i = startIndex; i < Math.min(startIndex + batchSize, totalElements); i++) {
+      elements[i].classList.toggle(className);
+    }
+
+    processedCount += batchSize;
+    var porcentaje = (processedCount * 100) / totalElements;
+    progressBar.value = porcentaje.toFixed(0);
+
+    if (processedCount < totalElements) {
+      mostrarLoader(); // Mostrar la imagen de carga
+      requestAnimationFrame(process.bind(null, processedCount));
+    } else {
+      ocultarLoader(); // Ocultar la imagen de carga al finalizar
+      if (callback) {
+        callback();
+      }
+    }
+  }
+
+  mostrarLoader(); // Mostrar el loader al principio
+  requestAnimationFrame(process.bind(null, 0));
+}
+
+
+
+
+
+
+/*******************************/
+
+
+
+
+
+
+/* Mostrar listas */
+var yca = 0;
+
+function handleListaChange() {
+  var olElements = document.getElementsByTagName('ol');
+
+  if (yca < 4) {
+    for (var i = 0; i < olElements.length; i++) {
+      if (!olElements[i].classList.contains('references')) {
+        olElements[i].classList.toggle('mostrar-lista');
+        olElements[i].classList.remove('chb-list');
+      }
+    }
+    mostrarLoader();
+    setTimeout(ocultarLoader, 200);
+  } else {
+    for (var j = 0; j < olElements.length; j++) {
+      if (!olElements[j].classList.contains('references')) {
+        olElements[j].classList.toggle('chb-list');
+        olElements[j].classList.remove('mostrar-lista');
+      }
+    }
+    mostrarLoader();
+    setTimeout(ocultarLoader, 200);
+  }
+
+  yca += 1;
+}
+
+function handleLemasChange() {
+  window.progressBar = document.getElementById('progressBar');
+  var lexemes = document.getElementsByClassName('normal');
+  var batchSize = 200;
+
+  processBatch(lexemes, batchSize, 'morfema');
+}
+
+function handleAnadidosChange() {
+  window.progressBar = document.getElementById('progressBar');
+  var anadidos = document.getElementsByClassName('anadido');
+  var batchSize = 200;
+
+  processBatch(anadidos, batchSize, 'ocultar-anadido');
+}
+
+function handleXVIIChange(event) {
+  var folio = document.getElementById('body');
+
+  if (!folio) {
+    return;
+  }
+
+  if (event.target.checked) {
+    folio.classList.add('fuente_xvii');
+  } else {
+    folio.classList.remove('fuente_xvii');
+    folio.style.fontFamily = "";
+  }
+}
+
+function initLemmaControls() {
+  var checkboxLista = document.getElementById('checkboxLista');
+  var checkboxLemas = document.getElementById('checkboxLemas');
+  var checkboxAnadidos = document.getElementById('checkboxAnadidos');
+  var checkboxXVII = document.getElementById('checkboxXVII');
+  var folio = document.getElementById('body');
+
+  if (!checkboxLista || !checkboxLemas || !checkboxAnadidos || !checkboxXVII || !folio) {
+    return false;
+  }
+
+  yca = 0;
+  window.progressBar = document.getElementById('progressBar');
+
+  checkboxLista.removeEventListener('change', handleListaChange);
+  checkboxLista.addEventListener('change', handleListaChange);
+
+  checkboxLemas.removeEventListener('change', handleLemasChange);
+  checkboxLemas.addEventListener('change', handleLemasChange);
+
+  checkboxAnadidos.removeEventListener('change', handleAnadidosChange);
+  checkboxAnadidos.addEventListener('change', handleAnadidosChange);
+
+  checkboxXVII.removeEventListener('change', handleXVIIChange);
+  checkboxXVII.addEventListener('change', handleXVIIChange);
+
+  return true;
+}
+
+window.initLemmaControls = initLemmaControls;
+
+initLemmaControls();
+
+
