@@ -1,0 +1,19 @@
+ = Inciar =
+ npm run dev
+
+= Instalar capacitor = 
+npm install @capacitor/core @capacitor/cli
+
+= Inicializar capacitor =
+npx cap init
+
+= Agregar la plataforma android =
+npm install @capacitor/android
+npx cap add android
+
+
+= Construir build =
+npm run build
+
+= Sincronizar cambios =
+npx cap sync android

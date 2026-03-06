@@ -121,6 +121,21 @@ const waitForLemmaControls = () =>
     observer.observe(document.body, { childList: true, subtree: true });
   });
 
+const resetLemmaControls = () => {
+  ['checkboxLemas', 'checkboxAnadidos', 'checkboxLista', 'checkboxXVII'].forEach((id) => {
+    const element = document.getElementById(id);
+    if (element) {
+      element.checked = false;
+    }
+  });
+
+  const folio = document.getElementById('body');
+  if (folio) {
+    folio.classList.remove('fuente_xvii');
+    folio.style.fontFamily = '';
+  }
+};
+
 const StaticHtmlPage = ({
   source,
   title,
@@ -137,35 +152,31 @@ const StaticHtmlPage = ({
 
   const lemmaControls = useMemo(
     () => (
-      <div className="d-flex flex-column flex-lg-row align-items-center gap-3">
-        <ul className="navbar-nav me-auto mb-2 mb-lg-0 flex-row flex-wrap gap-3">
-          <li className="nav-item d-flex align-items-center gap-2">
-            <input type="checkbox" id="checkboxLemas" />
-            <label className="text-light mb-0" htmlFor="checkboxLemas">
-              Resaltar lemas
-            </label>
-          </li>
-          <li className="nav-item d-flex align-items-center gap-2">
-            <input type="checkbox" id="checkboxAnadidos" />
-            <label className="text-light mb-0" htmlFor="checkboxAnadidos">
-              Ocultar añadidos
-            </label>
-          </li>
-          <li className="nav-item d-flex align-items-center gap-2">
-            <input type="checkbox" id="checkboxLista" />
-            <label className="text-light mb-0" htmlFor="checkboxLista">
-              Listar entradas
-            </label>
-          </li>
-        </ul>
-        <ul className="navbar-nav me-auto mb-2 mb-lg-0 flex-row gap-3">
-          <li className="nav-item d-flex align-items-center gap-2">
-            <input type="checkbox" id="checkboxXVII" />
-            <label className="text-light mb-0" htmlFor="checkboxXVII">
-              Tipografía siglo XVII
-            </label>
-          </li>
-        </ul>
+      <div className="lemma-controls-grid">
+        <div className="lemma-control-item d-flex align-items-center gap-2">
+          <input type="checkbox" id="checkboxLemas" />
+          <label className="text-light mb-0" htmlFor="checkboxLemas">
+            Resaltar lemas
+          </label>
+        </div>
+        <div className="lemma-control-item d-flex align-items-center gap-2">
+          <input type="checkbox" id="checkboxAnadidos" />
+          <label className="text-light mb-0" htmlFor="checkboxAnadidos">
+            Ocultar añadidos
+          </label>
+        </div>
+        <div className="lemma-control-item d-flex align-items-center gap-2">
+          <input type="checkbox" id="checkboxLista" />
+          <label className="text-light mb-0" htmlFor="checkboxLista">
+            Listar entradas
+          </label>
+        </div>
+        <div className="lemma-control-item d-flex align-items-center gap-2">
+          <input type="checkbox" id="checkboxXVII" />
+          <label className="text-light mb-0" htmlFor="checkboxXVII">
+            Tipografía siglo XVII
+          </label>
+        </div>
       </div>
     ),
     [],
@@ -223,11 +234,20 @@ const StaticHtmlPage = ({
       try {
         if (showLemmaControls) {
           await waitForLemmaControls();
+          resetLemmaControls();
         }
 
         for (const script of legacyScripts) {
           // eslint-disable-next-line no-await-in-loop
           await loadScriptOnce(script);
+        }
+
+        if (
+          showLemmaControls &&
+          typeof window !== 'undefined' &&
+          typeof window.initLemmaControls === 'function'
+        ) {
+          window.initLemmaControls();
         }
       } catch (err) {
         console.warn(err.message);

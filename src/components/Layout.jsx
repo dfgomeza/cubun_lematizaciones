@@ -36,28 +36,26 @@ const Layout = () => {
   return (
     <NavExtrasContext.Provider value={contextValue}>
       <div className="d-flex flex-column min-vh-100" style={{ minHeight: '100vh' }}>
-        <nav className="navbar navbar-expand-xl navbar-dark bg-dark fixed-top" aria-label="Menú principal">
-          <div className="container-fluid flex-column align-items-stretch gap-2">
-            <div className="d-flex align-items-center justify-content-between w-100 gap-3">
-              <NavLink className="navbar-brand" to="/">
-                CORPUS LEMATIZADO
-                <br />
-                DE LA LENGUA MUYSCA
-              </NavLink>
-              <button
-                className="navbar-toggler"
-                type="button"
-                data-bs-toggle="collapse"
-                data-bs-target="#navbarsMain"
-                aria-controls="navbarsMain"
-                aria-expanded="false"
-                aria-label="Mostrar navegación"
-              >
-                <span className="navbar-toggler-icon" />
-              </button>
-            </div>
+        <nav className="navbar navbar-expand-xl py-0 navbar-dark bg-dark fixed-top" aria-label="Menú principal">
+          <div className="container-fluid px-0 d-flex flex-wrap align-items-center">
+            <NavLink className="navbar-brand ms-3 order-1" to="/">
+              CORPUS LEMATIZADO
+              <br />
+              DE LA LENGUA MUYSCA
+            </NavLink>
+            <button
+              className="navbar-toggler ms-auto order-2 me-3"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#navbarsMain"
+              aria-controls="navbarsMain"
+              aria-expanded="false"
+              aria-label="Mostrar navegación"
+            >
+              <span className="navbar-toggler-icon" />
+            </button>
 
-            <div className="collapse navbar-collapse w-100 gap-3" id="navbarsMain">
+            <div className="collapse navbar-collapse gap-3 ms-3 align-items-center order-3 flex-grow-1 w-xl-auto" id="navbarsMain">
               <ul className="navbar-nav me-auto mb-2 mb-xl-0">
                 <li className="nav-item">
                   <NavLink to="/presentacion" className={navLinkClass}>
@@ -66,7 +64,7 @@ const Layout = () => {
                 </li>
                 <li className="nav-item dropdown">
                   <button
-                    className="nav-link dropdown-toggle btn btn-link text-decoration-none"
+                    className="nav-link dropdown-toggle btn btn-link text-decoration-none "
                     id="dropdownSources"
                     data-bs-toggle="dropdown"
                     aria-expanded="false"
@@ -152,15 +150,18 @@ const Layout = () => {
               </ul>
 
               {controls && (
-                <div className="lemma-controls-container w-100 d-flex justify-content-center">
+                <div className="lemma-controls-container w-100 w-xl-auto">
                   {controls}
                 </div>
               )}
             </div>
-  
+            {showProgress && (
+              <div id="progress-bar" className="w-100 order-4">
+                <ReadingProgress progress={progress} folio={folio} />
+              </div>
+            )}
           </div>
-
-          {showProgress && <ReadingProgress progress={progress} folio={folio} />}
+          
 
         </nav>
 
